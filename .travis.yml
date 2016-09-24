@@ -25,6 +25,10 @@ install:
   - npm install
 
 script:
+  - sed  'y/UA-67440907-3/UA-67440907-1/' themes/landscape/_config.yml
   - hexo clean
   - hexo generate
+  - cp -f source/test/* public/test/
+  - cp -f source/lib/* public/lib/
   - hexo deploy
+
