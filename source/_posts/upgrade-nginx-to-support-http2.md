@@ -8,7 +8,7 @@ categories:
 
 这两天把公司的网站升级到了全站https. 顺便瞄到了[HTTP2的浏览器支持情况](http://caniuse.com/#search=http2)：
 
-![](http://ww1.sinaimg.cn/large/bf5f3c73gw1f9v3qb02raj20z90epwij.jpg)
+![](//ww1.sinaimg.cn/large/bf5f3c73gw1f9v3qb02raj20z90epwij.jpg)
 
 支持得还都蛮好的嘛。忍不住试用了一把HTTP2 -- 就直接拿[本博客](https://www.clarencep.com)来做示例了。
 
@@ -71,17 +71,17 @@ sudo ln -s /usr/local/nginx/sbin/nginx /usr/sbin/nginx
 
 打开F12查看下HTTP头部，果然Request Headers都不一样了：
 
-![](http://ww2.sinaimg.cn/large/bf5f3c73gw1f9v473ftnoj20a40f7myj.jpg)
+![](//ww2.sinaimg.cn/large/bf5f3c73gw1f9v473ftnoj20a40f7myj.jpg)
 
 这些`:authority`, `:method` 和 `:path` 等冒号打头的就是HTTP2的特征之一 -- 手边没有抓包工具，只能这样粗浅的判断了。
 
 看看HTTP2的流水：
 
-![](http://ww1.sinaimg.cn/large/bf5f3c73gw1f9v4aad7zsj216x02faag.jpg)
+![](//ww1.sinaimg.cn/large/bf5f3c73gw1f9v4aad7zsj216x02faag.jpg)
 
 再比比HTTP1.1的流水：
 
-![](http://ww4.sinaimg.cn/large/bf5f3c73gw1f9v4ajjs6bj216w02i0te.jpg)
+![](//ww4.sinaimg.cn/large/bf5f3c73gw1f9v4ajjs6bj216w02i0te.jpg)
 
 HTTP2的流水简洁多了，有没有！
 
@@ -89,12 +89,11 @@ HTTP2的流水简洁多了，有没有！
 
 HTTP2的性能一般应该比HTTP1.1的高一些，但是，可不一定哟：
 
-![](http://ww2.sinaimg.cn/large/bf5f3c73gw1f9v3l9va5nj20mc081acu.jpg)
+![](//ww2.sinaimg.cn/large/bf5f3c73gw1f9v3l9va5nj20mc081acu.jpg)
 
 上图是[本博客首页](https://www.clarencep.com)在相同nginx、相同PC、相同网络条件下对HTTP2和HTTP1.1分别测试的PK结果。 可见虽然HTTP2的网络加载时间（Load）比HTTP1.1要短，但是DOM渲染时间（DOMContentLoaded）却比HTTP1.1要长。。。
 
 可能是由于本博没有专门为HTTP2优化所至。也可能是浏览器渲染没有为HTTP2优化的缘故。
 
 最后总结一句：HTTP2入坑要谨慎。
-
 
